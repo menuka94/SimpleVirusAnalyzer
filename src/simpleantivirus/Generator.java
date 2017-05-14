@@ -11,7 +11,7 @@ import java.security.MessageDigest;
  */
 public class Generator {
 
-    private static String getFileChecksum(MessageDigest digest, File file) throws IOException {
+    public static String getFileChecksum(MessageDigest digest, File file) throws IOException {
 
         //Create byte array to read data in chunks
         try (FileInputStream fis = new FileInputStream(file)) {

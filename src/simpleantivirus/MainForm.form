@@ -53,7 +53,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Simple AntiVirus"/>
+            <TitledBorder title="Simple Virus Detector"/>
           </Border>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -81,7 +81,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="lblSha1Hash" min="-2" pref="197" max="-2" attributes="0"/>
-                                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                                  <EmptySpace pref="156" max="32767" attributes="0"/>
                               </Group>
                               <Component id="lblMd5Hash" max="32767" attributes="0"/>
                           </Group>
@@ -124,18 +124,32 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblMd5">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="1" green="1" red="1" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="MD5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSha1">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="1" green="1" red="1" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="SHA-1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPath">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="1" green="1" red="1" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAnalyze">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="1" green="1" red="1" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Analyze"/>
           </Properties>
           <Events>
@@ -158,12 +172,15 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="hello"/>
+            <Property name="text" type="java.lang.String" value="No File Selected"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSha1Hash">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="1" green="1" red="1" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="No File Selected"/>
           </Properties>
         </Component>
       </SubComponents>

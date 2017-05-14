@@ -1,6 +1,11 @@
 package simpleantivirus;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -47,13 +52,18 @@ public class MainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Virus Detector - 140650E");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Simple AntiVirus"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Simple Virus Detector"));
         jPanel1.setForeground(new java.awt.Color(1, 1, 1));
 
+        lblMd5.setForeground(new java.awt.Color(1, 1, 1));
         lblMd5.setText("MD5");
 
+        lblSha1.setForeground(new java.awt.Color(1, 1, 1));
         lblSha1.setText("SHA-1");
 
+        txtPath.setForeground(new java.awt.Color(1, 1, 1));
+
+        btnAnalyze.setForeground(new java.awt.Color(1, 1, 1));
         btnAnalyze.setText("Analyze");
         btnAnalyze.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,9 +80,10 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         lblMd5Hash.setForeground(new java.awt.Color(1, 1, 1));
-        lblMd5Hash.setText("hello");
+        lblMd5Hash.setText("No File Selected");
 
-        lblSha1Hash.setText("jLabel2");
+        lblSha1Hash.setForeground(new java.awt.Color(1, 1, 1));
+        lblSha1Hash.setText("No File Selected");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,7 +104,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblSha1Hash, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE))
                             .addComponent(lblMd5Hash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -142,6 +153,21 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnalyzeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalyzeActionPerformed
+        if (file != null) {
+            try {
+                MessageDigest md5digest = MessageDigest.getInstance("MD5");
+                String md5checksum = Generator.getFileChecksum(md5digest, file);
+                lblMd5Hash.setText(md5checksum);
+
+                MessageDigest shaDigest = MessageDigest.getInstance("SHA-1");
+                String shaChecksum = Generator.getFileChecksum(shaDigest, file);
+                lblSha1Hash.setText(shaChecksum);
+            } catch (NoSuchAlgorithmException | IOException ex) {
+                Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Select a file first");
+        }
 
 
     }//GEN-LAST:event_btnAnalyzeActionPerformed
