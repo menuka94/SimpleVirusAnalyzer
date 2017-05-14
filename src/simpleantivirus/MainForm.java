@@ -186,7 +186,7 @@ public class MainForm extends javax.swing.JFrame {
                 
                 boolean checkMd5 = HashAnalyzer.checkMd5(md5checksum);
                 if(checkMd5){
-                    lblStatus.setText("Possible Treat Detected"  + "\n" + file.getPath());
+                    lblStatus.setText("Possible Treat Detected");
                     lblStatus.setForeground(Color.red);
                 }else{
                     lblStatus.setText("No Threat Detected");
