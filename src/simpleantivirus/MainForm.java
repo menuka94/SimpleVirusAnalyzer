@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -37,12 +38,10 @@ public class MainForm extends javax.swing.JFrame {
         fileChooser = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         lblMd5 = new javax.swing.JLabel();
-        lblSha1 = new javax.swing.JLabel();
         txtPath = new javax.swing.JTextField();
         btnAnalyze = new javax.swing.JButton();
         btnBrowse = new javax.swing.JButton();
         lblMd5Hash = new javax.swing.JLabel();
-        lblSha1Hash = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
 
@@ -60,9 +59,6 @@ public class MainForm extends javax.swing.JFrame {
 
         lblMd5.setForeground(new java.awt.Color(1, 1, 1));
         lblMd5.setText("MD5");
-
-        lblSha1.setForeground(new java.awt.Color(1, 1, 1));
-        lblSha1.setText("SHA-1");
 
         txtPath.setForeground(new java.awt.Color(1, 1, 1));
 
@@ -85,9 +81,6 @@ public class MainForm extends javax.swing.JFrame {
         lblMd5Hash.setForeground(new java.awt.Color(1, 1, 1));
         lblMd5Hash.setText("No File Selected");
 
-        lblSha1Hash.setForeground(new java.awt.Color(1, 1, 1));
-        lblSha1Hash.setText("No File Selected");
-
         jLabel1.setText("Status");
 
         lblStatus.setText("No File Selected");
@@ -97,36 +90,26 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtPath)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBrowse))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMd5)
-                                    .addComponent(lblSha1))
-                                .addGap(63, 63, 63)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnAnalyze)
-                                        .addGap(24, 24, 24))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblSha1Hash, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE))
-                                    .addComponent(lblMd5Hash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblStatus)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1)
-                        .addGap(416, 416, 416)))
+                        .addGap(35, 35, 35)
+                        .addComponent(lblStatus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtPath)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBrowse))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblMd5)
+                        .addGap(73, 73, 73)
+                        .addComponent(lblMd5Hash, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)))
                 .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAnalyze)
+                .addGap(109, 109, 109))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,13 +122,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblMd5, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                     .addComponent(lblMd5Hash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSha1)
-                    .addComponent(lblSha1Hash))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAnalyze)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblStatus))
@@ -163,9 +142,9 @@ public class MainForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -176,26 +155,31 @@ public class MainForm extends javax.swing.JFrame {
         if (file != null) {
             try {
                 MessageDigest md5digest = MessageDigest.getInstance("MD5");
-                String md5checksum = Generator.getFileChecksum(md5digest, file);
-                lblMd5Hash.setText(md5checksum);
-                System.out.println("md5checksum: " + md5checksum);
+                String md5Checksum = Generator.getFileChecksum(md5digest, file);
+                lblMd5Hash.setText(md5Checksum);
 
-                MessageDigest shaDigest = MessageDigest.getInstance("SHA-1");
-                String shaChecksum = Generator.getFileChecksum(shaDigest, file);
-                lblSha1Hash.setText(shaChecksum);
-                
-                boolean checkMd5 = HashAnalyzer.checkMd5(md5checksum);
-                if(checkMd5){
+                MessageDigest sha1Digest = MessageDigest.getInstance("SHA-1");
+                String sha1Checksum = Generator.getFileChecksum(sha1Digest, file);
+
+                MessageDigest sha2Digest = MessageDigest.getInstance("SHA-256");
+                String sha256Checksum = Generator.getFileChecksum(md5digest, file);
+
+                boolean checkMd5 = HashAnalyzer.checkMd5(md5Checksum);
+                if (checkMd5) {
                     lblStatus.setText("Possible Treat Detected");
                     lblStatus.setForeground(Color.red);
-                }else{
+                    Report report = new Report(file.getPath(), md5Checksum, sha1Checksum, sha256Checksum);
+
+                    report.setVisible(true);
+                    SwingUtilities.updateComponentTreeUI(report);
+                } else {
                     lblStatus.setText("No Threat Detected");
                     lblStatus.setForeground(Color.blue);
                 }
             } catch (NoSuchAlgorithmException | IOException ex) {
                 Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Select a file first");
         }
 
@@ -214,7 +198,6 @@ public class MainForm extends javax.swing.JFrame {
                 String path = file.getPath();
                 txtPath.setText(path);
                 lblMd5Hash.setText("Click Analyze");
-                lblSha1Hash.setText("Click Analyze");
                 lblStatus.setText("Waiting for Analysis");
             } catch (Exception e) {
             }
@@ -266,8 +249,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMd5;
     private javax.swing.JLabel lblMd5Hash;
-    private javax.swing.JLabel lblSha1;
-    private javax.swing.JLabel lblSha1Hash;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
