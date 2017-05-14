@@ -5,4 +5,9 @@ This application generates the `MD5` hash of a given file and matches it with a 
 
 ### Installation
 * Use Netbeans to build the source
-* Or run the JAR provided in `dist` directory
+* Run with Netbeans
+
+### Requirements
+
+* NetBeans IDE
+* Java 8 Runtime Environment
