@@ -11,5 +11,4 @@ public class SimpleAntiVirus {
         MainForm mf = new MainForm();
         mf.setVisible(true);
     }
-    
 }
